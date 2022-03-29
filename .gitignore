@@ -1,0 +1,3 @@
+/infra_iac/terraform.exe
+/infra_iac/.terraform/
+*.csv
