@@ -49,7 +49,7 @@ jobs:
       run:
         $COMMAND_IAC plan
 
-    -name: terraform apply
+    - name: terraform apply
     env:
       COMMAND_IAC: terraform
     run:
