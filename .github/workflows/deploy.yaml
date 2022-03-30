@@ -47,7 +47,7 @@ jobs:
       env:
         COMMAND_IAC: terraform
       run:
-        $COMMAND_IAC plan
+        $COMMAND_IAC plan -destroy
 
     - name: terraform apply
       env:
