@@ -9,15 +9,15 @@ resource "aws_s3_bucket" "lakehouse" {
 
 resource "aws_s3_bucket_object" "enem_data" {
   bucket = "${aws_s3_bucket.lakehouse.bucket}"
-  key    = "raw-data/enem/microdados_enem_2020.csv"
+  key    = "${var.microdados_path_s3}"
   acl    = "private"
-  source = "C:/Users/ivan.oliveira/data_eng_cloud/enem_2020/DADOS/MICRODADOS_ENEM_2020.csv"
+  source = "${var.source_path_local}"
 }
 
 resource "aws_s3_bucket_object" "etl_script_spark" {
   bucket = "${aws_s3_bucket.lakehouse.bucket}"
-  key    = "scripts/pyspark/glue_job_rw.py"
-  source = "C:/Users/ivan.oliveira/data_eng_cloud/trabalho_pratico_1/glue_job_read_write.py"
+  key    = "${var.script_path_s3}"
+  source = "${var.script_path_local}"
 }
 
 
