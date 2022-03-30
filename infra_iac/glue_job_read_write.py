@@ -15,7 +15,8 @@ spark = glueContext.spark_session
 job = Job(glueContext)
 job.init(args['JOB_NAME'], args)
 
-
+read_path = 's3://lakehouse-test/raw-data/enem/microdados_enem_2020.csv'
+load_path = 's3://lakehouse-test/consumer-zone/'
 
 # read the data from s3 storage
 enem_raw = (
@@ -24,7 +25,7 @@ enem_raw = (
         .option('header', True)
         .option('inferSchema', True)
         .option('delimiter', ';')
-        .load('s3://lakehouse-test/raw-data/enem/microdados_enem_2020.csv')
+        .load(read_path)
 )
 
 # write the data in s3 storage
@@ -33,6 +34,6 @@ enem_raw = (
         .mode('overwrite')
         .format('parquet')
         .partitionBy('NU_ANO')
-        .save('s3://lakehouse-test/consumer-zone/')
+        .save(load_path)
 )
 job.commit()
