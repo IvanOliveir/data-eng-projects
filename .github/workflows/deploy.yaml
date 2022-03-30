@@ -50,7 +50,7 @@ jobs:
         $COMMAND_IAC plan
 
     - name: terraform apply
-    env:
-      COMMAND_IAC: terraform
-    run:
-      $COMMAND_IAC apply -auto-approve
+      env:
+        COMMAND_IAC: terraform
+      run:
+        $COMMAND_IAC apply -auto-approve
