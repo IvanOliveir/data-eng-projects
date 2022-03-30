@@ -1,3 +1,7 @@
+variable "aws_region" {
+  default = "sa-east-1"
+}
+
 variable "microdados_path_s3" {
   default = "raw-data/enem/microdados_enem_2020.csv"
 }
