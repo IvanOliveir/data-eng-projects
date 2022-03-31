@@ -15,7 +15,7 @@ spark = glueContext.spark_session
 job = Job(glueContext)
 job.init(args['JOB_NAME'], args)
 
-read_path = 's3://lakehouse-test/raw-data/enem/microdados_enem_2020.csv'
+read_path = 's3://lakehouse-test/data/MICRODADOS_ENEM_2020.csv'
 load_path = 's3://lakehouse-test/consumer-zone/'
 
 # read the data from s3 storage
